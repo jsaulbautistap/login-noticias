@@ -9,7 +9,6 @@
 
 <ion-content class="ion-padding">
 
-  <!-- Formulario para publicar noticia -->
   <ion-card>
     <ion-card-header>
       <ion-card-title>Publicar Noticia</ion-card-title>
@@ -31,7 +30,6 @@
     </ion-card-content>
   </ion-card>
 
-  <!-- Lista de noticias -->
   <ion-list *ngIf="noticias.length > 0">
     <ion-item *ngFor="let noticia of noticias" lines="none">
       <ion-avatar slot="start">

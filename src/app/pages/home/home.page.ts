@@ -31,7 +31,6 @@ export class HomePage implements OnInit {
 
     this.email = user.email || '';
 
-    // Obtener nombre e imagen del perfil del usuario
     const { data: perfil } = await supabase
       .from('profiles')
       .select('nombre, fotoPerfil')
