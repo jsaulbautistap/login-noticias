@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Noticias</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-item>
+    <ion-input placeholder="Título" [(ngModel)]="titulo"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input placeholder="Contenido" [(ngModel)]="contenido"></ion-input>
+  </ion-item>
+
+  <ion-button expand="block" (click)="publicarNoticia()">Publicar</ion-button>
+
+  <ion-list>
+    <ion-item *ngFor="let noticia of noticias">
+      <ion-avatar slot="start">
+        <img [src]="noticia.imagen_perfil || 'https://via.placeholder.com/150'" />
+      </ion-avatar>
+      <ion-label>
+        <h2>{{ noticia.nombre_usuario }}</h2>
+        <h3>{{ noticia.titulo }}</h3>
+        <p>{{ noticia.contenido }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

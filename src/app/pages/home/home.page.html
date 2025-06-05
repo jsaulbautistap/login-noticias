@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Noticias</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">Cerrar sesión</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <!-- Formulario para publicar noticia -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Publicar Noticia</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="stacked">Título</ion-label>
+        <ion-input [(ngModel)]="titulo" placeholder="Escribe el título..."></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Contenido</ion-label>
+        <ion-textarea [(ngModel)]="contenido" placeholder="Escribe el contenido..."></ion-textarea>
+      </ion-item>
+
+      <ion-button expand="block" color="primary" (click)="publicarNoticia()">
+        Publicar
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Lista de noticias -->
+  <ion-list *ngIf="noticias.length > 0">
+    <ion-item *ngFor="let noticia of noticias" lines="none">
+      <ion-avatar slot="start">
+        <img [src]="noticia.imagen_perfil || 'https://via.placeholder.com/150'" alt="Perfil" />
+      </ion-avatar>
+      <ion-label>
+        <h2>{{ noticia.nombre_usuario }}</h2>
+        <h3>{{ noticia.titulo }}</h3>
+        <p>{{ noticia.contenido }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <div *ngIf="noticias.length === 0" class="ion-text-center ion-margin-top">
+    <p>No hay noticias publicadas aún.</p>
+  </div>
+
+</ion-content>

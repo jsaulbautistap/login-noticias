@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="titu">Login / Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="formulario">
+    <ion-input [(ngModel)]="email" placeholder="Email" class="emai"></ion-input>
+    <ion-input [(ngModel)]="password" type="password" placeholder="Contraseña" class="contra"></ion-input>
+
+    <ion-title class="titu">subir foto de perfil</ion-title>
+    <ion-item lines="none">
+      <input type="file" accept="image/*" (change)="onFileSelected($event)" />
+    </ion-item>
+    
+    <img
+      *ngIf="previewImage"
+      [src]="previewImage"
+      style="width: 100px; height: 100px; margin: 10px auto; display: block; border-radius: 50%;"
+    />
+
+    <ion-button expand="full" (click)="login()" class="emai-boton">Iniciar sesión</ion-button>
+    <ion-button expand="full" fill="outline" (click)="register()" class="contra-boton">Registrarse</ion-button>
+
+    <p *ngIf="error" style="color: red">{{ error }}</p>
+  </div>
+</ion-content>
